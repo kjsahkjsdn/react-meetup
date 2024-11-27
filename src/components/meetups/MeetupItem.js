@@ -1,7 +1,12 @@
 import classes from "./MeetupItem.module.css";
 import Card from "../ui/Card";
 
+import { useAppDispatch } from "../../state/favorites/hook";
+import { addFavorite } from "../../state/favorites/slice";
+
 export default function MeetupItem({ item }) {
+  const dispatch = useAppDispatch()
+
   return (
     <li className={classes.item} data-test='meet-up-item'>
       <Card>
@@ -14,7 +19,7 @@ export default function MeetupItem({ item }) {
           <p>{item.description}</p>
         </div>
         <div className={classes.actions}>
-          <button>Add to favorites</button>
+          <button onClick={() => dispatch(addFavorite(item))}>Add to Favorites</button>
         </div>
       </Card>
     </li>
