@@ -4,9 +4,14 @@ import { NavLink } from "react-router";
 import { ALL_MEETUP_PAGE, FAVORITES_PAGE, NEW_MEETUP_PAGE } from "./../../utils/constants";
 import { useScrollDirection } from "../../util-hooks/useScrollDirection";
 
+import { useAppSelector } from "../../state/favorites/hook";
+import { selectFavoritesCount } from "../../state/favorites/slice";
+
 import classes from "./MainNavigation.module.css";
 
 export default function MainNavigation() {
+  const favoritesCount = useAppSelector(selectFavoritesCount);
+
   const scrollDirection = useScrollDirection();
 
   const [isVisible, setIsVisible] = useState(true);
@@ -34,7 +39,7 @@ export default function MainNavigation() {
           <li>
             <NavLink to={FAVORITES_PAGE}>
               My Favorites
-              <span className={classes.badge}>{0}</span>
+              <span className={classes.badge}>{favoritesCount}</span>
             </NavLink>
           </li>
         </ul>
