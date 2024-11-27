@@ -17,7 +17,7 @@ export const meetupsSlice = createSlice({
   },
 });
 
-export const { addMeetup, setMeetups } = meetupsSlice.actions;
+export const { addMeetup, setMeetups, removeMeetup } = meetupsSlice.actions;
 
 export default meetupsSlice.reducer;
 

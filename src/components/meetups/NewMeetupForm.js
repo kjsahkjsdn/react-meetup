@@ -1,9 +1,22 @@
 import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
+import { useDispatch } from "react-redux";
+import { addMeetup } from "../../state/meetups/slice";
 
 export default function NewMeetupForm() {
+  const dispatch = useDispatch();
+
   function submitHandler(event) {
     event.preventDefault();
+    const meetupData = {
+      title: event.target.title.value,
+      image: event.target.image.value,
+      address: event.target.address.value,
+      description: event.target.description.value,
+    };
+    dispatch(addMeetup(meetupData));
+    event.target.reset();
+    alert("Meetup added!");
   }
 
   return (
