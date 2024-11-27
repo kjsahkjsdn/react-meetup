@@ -1,7 +1,6 @@
 import { useFetch } from "../util-hooks/useFetch";
 
-import MeetupItem from "../components/meetups/MeetupItem";
-import classes from "./../components/meetups/MeetupList.module.css";
+import MeetupList from "../components/meetups/MeeupList";
 
 export default function AllMeetupsPage() {
    const { data } = useFetch({
@@ -13,11 +12,7 @@ export default function AllMeetupsPage() {
   return (
     <section>
       <h1>All Meetups</h1>
-      <ul className={classes.list}>
-        {data.map((item) => (
-          <MeetupItem key={item.id} item={item} />
-        ))}
-      </ul>
+      <MeetupList data={data} />
     </section>
   );
 }
