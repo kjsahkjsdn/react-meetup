@@ -25,3 +25,6 @@ export default favoritesSlice.reducer;
 
 export const selectFavorites = (state) => state.favorites.favorites;
 export const selectFavoritesCount = (state) => state.favorites.favorites.length;
+export const selectIsFavorite = (state, id) => {
+  return state.favorites.favorites.some((item) => item.id === id);
+}

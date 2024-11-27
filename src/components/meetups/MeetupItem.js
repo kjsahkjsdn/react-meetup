@@ -1,11 +1,21 @@
 import classes from "./MeetupItem.module.css";
 import Card from "../ui/Card";
 
-import { useAppDispatch } from "../../state/favorites/hook";
-import { addFavorite } from "../../state/favorites/slice";
+import { useAppDispatch, useAppSelector } from "../../state/favorites/hook";
+import { addFavorite, removeFavorite, selectIsFavorite } from "../../state/favorites/slice";
 
 export default function MeetupItem({ item }) {
   const dispatch = useAppDispatch()
+
+  const isFavorite = useAppSelector((state) => selectIsFavorite(state, item.id));
+
+  const handleClick = () => {
+    if(isFavorite) {
+      dispatch(removeFavorite(item));
+    } else {
+      dispatch(addFavorite(item));
+    }
+  }
 
   return (
     <li className={classes.item} data-test='meet-up-item'>
@@ -19,7 +29,9 @@ export default function MeetupItem({ item }) {
           <p>{item.description}</p>
         </div>
         <div className={classes.actions}>
-          <button onClick={() => dispatch(addFavorite(item))}>Add to Favorites</button>
+          <button onClick={() => handleClick(item)}>
+            {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+          </button>
         </div>
       </Card>
     </li>
