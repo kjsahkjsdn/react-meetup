@@ -29,7 +29,7 @@ export default function MeetupItem({ item }) {
           <p>{item.description}</p>
         </div>
         <div className={classes.actions}>
-          <button onClick={() => handleClick(item)}>
+          <button onClick={() => handleClick(item)} data-test='favorite-button'>
             {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
           </button>
         </div>
