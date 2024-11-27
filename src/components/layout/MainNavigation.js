@@ -22,7 +22,9 @@ export default function MainNavigation() {
 
   return (
     <header className={classes.header} style={{ top: isVisible ? "0" : "-100px" }} data-test="navigation-header">
-      <div className={classes.logo}>React Meetups</div>
+      <h1 className={classes.logo}>
+        <NavLink to={ALL_MEETUP_PAGE}>React Meetups</NavLink>
+      </h1>
       <nav>
         <ul>
           <li>
@@ -30,7 +32,6 @@ export default function MainNavigation() {
               All Meetups
             </NavLink>
           </li>
-
           <li>
             <NavLink to={NEW_MEETUP_PAGE}>
               Add New Meetup
