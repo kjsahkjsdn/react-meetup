@@ -1,7 +1,7 @@
 import classes from "./MeetupItem.module.css";
 import Card from "../ui/Card";
 
-import { useAppDispatch, useAppSelector } from "../../state/favorites/hook";
+import { useAppDispatch, useAppSelector } from "../../state/hook";
 import { addFavorite, removeFavorite, selectIsFavorite } from "../../state/favorites/slice";
 
 export default function MeetupItem({ item }) {

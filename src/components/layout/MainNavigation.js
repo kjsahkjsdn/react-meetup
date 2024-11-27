@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 import { ALL_MEETUP_PAGE, FAVORITES_PAGE, NEW_MEETUP_PAGE } from "./../../utils/constants";
 import { useScrollDirection } from "../../util-hooks/useScrollDirection";
 
-import { useAppSelector } from "../../state/favorites/hook";
+import { useAppSelector } from "../../state/hook";
 import { selectFavoritesCount } from "../../state/favorites/slice";
 
 import classes from "./MainNavigation.module.css";

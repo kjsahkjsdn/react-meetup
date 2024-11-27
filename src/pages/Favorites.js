@@ -1,4 +1,4 @@
-import { useAppSelector } from "../state/favorites/hook";
+import { useAppSelector } from "../state/hook";
 import { selectFavorites } from "../state/favorites/slice";
 
 import MeetupList from "../components/meetups/MeeupList";
